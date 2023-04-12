@@ -1,14 +1,26 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginPage from "../Pages/LoginPage"
+import Registration from "../Pages/RegistrationPage"
+import HomePage from "../Pages/HomePage"
+
+
+
 export default function App() {
   return (
 
-      <div>
-            <h1 className={` text-9xl font-bold text-blue-600 flex justify-center items-start `}>
-      iLVu2
-    </h1>
-      <button class="btn btn-primary">Button</button>
 
-      </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="" element={<HomePage/>}/>
+      <Route path="/user/login/" element={<LoginPage/>}/>
+      <Route path="/user/register/" element={<Registration/>}/>
+
+
+    </Routes>
+    </BrowserRouter>
+
   
+
     
   )
 }
