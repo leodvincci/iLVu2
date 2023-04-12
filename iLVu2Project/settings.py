@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "iLVu2JournalApp",
+    "iLVu2MoodTrackerApp",
 ]
 
 MIDDLEWARE = [
