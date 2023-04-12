@@ -8,7 +8,7 @@ export default function RegestrationPage(){
             <input type="text" placeholder="last name" className="input input-bordered input-info w-full max-w-xs" />
             <input type="text" placeholder="email name" className="input input-bordered input-info w-full max-w-xs" />
             <input type="password" placeholder="password" className="input input-bordered input-info w-full max-w-xs" />
-            <button class="btn btn-primary">Button</button>
+            <button class="btn btn-primary">Register</button>
             </div>
 
         </div>
