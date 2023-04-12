@@ -1,9 +1,9 @@
 export default function LoginPage(){
     return(
-        <div className={`w-screen h-screen flex flex-row items-center justify-center bg-slate-700`}>
+        <div className={`w-screen h-screen flex flex-row items-center justify-center bg-slate-300`}>
             
             <div className={` flex flex-col w-fit `}>
-            <h1 className={`text-2xl  text-white`}>Please Login</h1>
+            <h1 className={`text-2xl  text-slate-900 m-1`}>Please Login</h1>
             <input type="text" placeholder="email name" className="input input-bordered input-info w-full max-w-xs" />
             <input type="password" placeholder="password" className="input input-bordered input-info w-full max-w-xs" />
             <button class="btn btn-primary">Login</button>
