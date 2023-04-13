@@ -1,6 +1,6 @@
 export default function LoginPage(){
     return(
-        <div className={`w-screen h-screen flex flex-row items-center justify-center bg-slate-300`}>
+        <div className={`w-screen h-screen flex flex-row items-center justify-center bg-slate-200`}>
             
             <div className={` flex flex-col w-fit `}>
             <h1 className={`text-2xl  text-slate-900 m-1`}>Please Login</h1>

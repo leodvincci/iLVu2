@@ -21,10 +21,10 @@ export default function App() {
   </div>
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Journal Prompt</a></li>
+      {/* <li><a>Journal Prompt</a></li>
  
       <li><a>Mood Check-In</a></li>
-   
+    */}
 
 
     </ul>
