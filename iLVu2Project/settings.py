@@ -128,3 +128,5 @@ STATICFILES_DIRS = [BASE_DIR / 'static', ]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+LOGIN_URL = 'user_login'
+

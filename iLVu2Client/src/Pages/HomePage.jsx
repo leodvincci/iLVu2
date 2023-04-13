@@ -7,7 +7,7 @@ export default function HomePage(){
         <div className="w-screen h-screen flex flex-col justify-center items-center">
                         <p className={` text-blue-500 normal-case text-9xl m-3`}><BsChatLeftHeart /> </p>
 
-            <div className={` w-1/4 h-1/4 flex-row flex justify-around items-center rounded-xl m-4`}>
+            <div className={`w-1/4 flex-row flex justify-around items-center rounded-xl h-40`}>
 
                 <Link to={"/user/login"}> <button className="btn  btn-primary">Login</button></Link>
                 <Link to={"/user/register"}><button className="btn btn-outline btn-secondary">Register</button></Link>

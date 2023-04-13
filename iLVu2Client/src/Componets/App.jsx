@@ -3,11 +3,19 @@ import LoginPage from "../Pages/LoginPage"
 import Registration from "../Pages/RegistrationPage"
 import HomePage from "../Pages/HomePage"
 import { BsChatLeftHeart } from 'react-icons/bs';
+import TrackerPage from "../Pages/TrackerPage";
+import axios from "axios";
 
 
 
 export default function App() {
+
+  function handleLogOut(){
+    axios.get("http://localhost:8000/user/user_logout").then(()=>{alert("user has Logged out")})
+  }
+
   return (
+    
 
     
 
@@ -21,10 +29,12 @@ export default function App() {
   </div>
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
-      {/* <li><a>Journal Prompt</a></li>
+      <li><a>Journal Prompt</a></li>
  
       <li><a>Mood Check-In</a></li>
-    */}
+
+      <button onClick={handleLogOut} className="btn btn-error">Logout</button>
+   
 
 
     </ul>
@@ -36,6 +46,8 @@ export default function App() {
       <Route path="" element={<HomePage/>}/>
       <Route path="/user/login/" element={<LoginPage/>}/>
       <Route path="/user/register/" element={<Registration/>}/>
+      <Route path="/journal/tracker" element={<TrackerPage/>}/>
+
     </Routes>
     </BrowserRouter>
 
