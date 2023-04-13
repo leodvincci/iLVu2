@@ -6,10 +6,13 @@ export default function RegestrationPage(){
     const [userRegData, setUserRegData] = React.useState({})
 
     function handleClick(){
-        axios.post("http://localhost:8000/user/register_user")
-            .then((res)=>{
-                console.log(res)
-            })
+        axios.post("http://localhost:8000/user/register_user",{
+            ...userRegData
+        })
+        .then(res=>{
+            console.log(res)
+            document.location.href = "/user/login"
+        })
     }
 
     function handleChange(e){
