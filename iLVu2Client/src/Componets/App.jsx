@@ -6,6 +6,7 @@ import { BsChatLeftHeart } from 'react-icons/bs';
 import TrackerPage from "../Pages/TrackerPage";
 import axios from "axios";
 import React from "react";
+import QuotePage from "../Pages/QuotePage.jsx";
 
 
 
@@ -37,6 +38,7 @@ export default function App() {
       <li><a>Journal Prompt</a></li>
  
       <li><a>Mood Check-In</a></li>
+      <li><a>Quote</a></li>
 
       <button onClick={handleLogOut} className="btn btn-error">Logout</button>
       {/*{navState === true ? <Navigate to={"/"}/> : ""}*/}
@@ -53,6 +55,8 @@ export default function App() {
       <Route path="/user/login/" element={<LoginPage/>}/>
       <Route path="/user/register/" element={<Registration/>}/>
       <Route path="/journal/tracker" element={<TrackerPage/>}/>
+      <Route path="/quote" element={<QuotePage/>}/>
+
 
     </Routes>
     </BrowserRouter>
