@@ -1,17 +1,22 @@
-import { BrowserRouter, Route, Routes,Link } from "react-router-dom";
+import {BrowserRouter, Route, Routes, Link, Navigate} from "react-router-dom";
 import LoginPage from "../Pages/LoginPage"
 import Registration from "../Pages/RegistrationPage"
 import HomePage from "../Pages/HomePage"
 import { BsChatLeftHeart } from 'react-icons/bs';
 import TrackerPage from "../Pages/TrackerPage";
 import axios from "axios";
+import React from "react";
 
 
 
 export default function App() {
-
+  const [navState , setNavState] = React.useState(false)
   function handleLogOut(){
-    axios.get("http://localhost:8000/user/user_logout").then(()=>{alert("user has Logged out")})
+    axios.get("http://localhost:8000/user/user_logout").then(()=>{
+      alert("user has Logged out")
+      setNavState(true)
+    })
+        .catch((err)=>{return err})
   }
 
   return (
@@ -34,7 +39,8 @@ export default function App() {
       <li><a>Mood Check-In</a></li>
 
       <button onClick={handleLogOut} className="btn btn-error">Logout</button>
-   
+      {/*{navState === true ? <Navigate to={"/"}/> : ""}*/}
+
 
 
     </ul>
