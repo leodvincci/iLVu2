@@ -40,7 +40,8 @@ def user_login(request):
 @api_view(["GET"])
 def user_logout(request):
     logout(request)
-    return HttpResponse(f"User Has Been Logged Out!")
+    print(f"User Has Been Logged Out!")
+    return redirect('index')
 
 
 @api_view(["GET"])

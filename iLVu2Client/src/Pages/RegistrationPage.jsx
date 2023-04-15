@@ -32,7 +32,7 @@ export default function RegestrationPage(){
             <input onChange={handleChange} type="text" id="last_name" placeholder="last name" className="input input-bordered input-info w-full max-w-xs" />
             <input onChange={handleChange} type="text" id="email" placeholder="email name" className="input input-bordered input-info w-full max-w-xs" />
             <input onChange={handleChange} type="password" id="password" placeholder="password" className="input input-bordered input-info w-full max-w-xs" />
-            <button onClick={handleClick} class="btn btn-primary">Register</button>
+            <button onClick={handleClick} className="btn btn-primary">Register</button>
             </div>
 
         </div>
