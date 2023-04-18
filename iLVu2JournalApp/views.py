@@ -98,3 +98,18 @@ def Prompt_Response(request):
 @api_view(["GET"])
 def Calendar(request):
     return JsonResponse({"Data": list(TheCalendar.objects.all().values())})
+
+
+def Journal_Tracker(request):
+    return JsonResponse({"Data": list(JournalTracker.objects.all().values())})
+
+
+def Mood_Tracker(request):
+    return JsonResponse({"Data": list(MoodTracker.objects.all().values())})
+
+def Site_Prompt(request):
+    return JsonResponse({"Data": list(SitePrompt.objects.all().values())})
+
+
+def User_Prompt(request):
+    return JsonResponse({"Data": list(UserPrompt.objects.all().values())})
