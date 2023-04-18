@@ -14,5 +14,7 @@ urlpatterns = [
     path("api/v1/emojis", views.Emojis, name="emoji"),
     path("api/v1/quotes", views.Quotes, name="quotes"),
     path("api/v1/categories", views.Categories, name="categories"),
+    path("api/v1/promptresponse", views.Prompt_Response, name="promptresponse"),
+
 
 ]

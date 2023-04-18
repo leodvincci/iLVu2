@@ -88,7 +88,8 @@ def Quotes(request):
 
 @api_view(["GET"])
 def Categories(request):
-    cats = PromptCategory.objects.all()
-    # cat_son = json.loads(cats.values)
-    cat_son = (list(cats.values()))
-    return JsonResponse({"Data":cat_son})
+    return JsonResponse({"Data": list(PromptCategory.objects.all().values())})
+
+@api_view(["GET"])
+def Prompt_Response(request):
+    return JsonResponse({"Data": list(PromptResponse.objects.all().values())})
