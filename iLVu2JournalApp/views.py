@@ -6,6 +6,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 import json
+import requests
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
 from django.shortcuts import redirect
 # Create your views here.
 
@@ -55,4 +60,18 @@ def curr_user(request):
     else:
         print("USER NOT SIGNED IN!")
         return JsonResponse( {"user":None} )
+
+@api_view(["GET"])
+def Emojis(request):
+    url = f"https://emoji-api.com/emojis?search=face&access_key={os.getenv('EMO_KEY')}"
+    api_call = requests.get(url, headers={})
+    print(api_call.json())
+    return JsonResponse({"data":api_call.json()})
+
+@api_view(["GET"])
+def Quotes(request):
+    url = f"https://api.api-ninjas.com/v1/quotes?category=happiness"
+    api_call = requests.get(url, headers={'x-Api-key': os.getenv("QUOTE_KEY")})
+    print(api_call.json())
+    return JsonResponse({"data":api_call.json()})
 
