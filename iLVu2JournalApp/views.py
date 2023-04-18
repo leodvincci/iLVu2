@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 import json
 import requests
 from dotenv import load_dotenv
+from .models import *
 
 load_dotenv()
 import os
@@ -84,6 +85,10 @@ def Quotes(request):
     print(api_call.json())
     return JsonResponse({"data": api_call.json()})
 
+
 @api_view(["GET"])
 def Categories(request):
-    return JsonResponse({"data":"200 ok"})
+    cats = PromptCategory.objects.all()
+    # cat_son = json.loads(cats.values)
+    cat_son = (list(cats.values()))
+    return JsonResponse({"Data":cat_son})

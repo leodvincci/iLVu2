@@ -10,6 +10,9 @@ class PromptCategory(models.Model):
     category_description = models.TextField(max_length=200)
     category_img = models.TextField(max_length=100, null=True)
 
+    def __str__(self):
+        return f"{self.category_name}---{self.category_description}"
+
 
 class SitePrompt(models.Model):
     prompt_text = models.CharField(max_length=200)
