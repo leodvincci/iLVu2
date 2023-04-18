@@ -9,6 +9,7 @@ import json
 import requests
 from dotenv import load_dotenv
 from .models import *
+from .models import Calendar as TheCalendar
 
 load_dotenv()
 import os
@@ -93,3 +94,7 @@ def Categories(request):
 @api_view(["GET"])
 def Prompt_Response(request):
     return JsonResponse({"Data": list(PromptResponse.objects.all().values())})
+
+@api_view(["GET"])
+def Calendar(request):
+    return JsonResponse({"Data": list(TheCalendar.objects.all().values())})
