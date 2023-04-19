@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -91,9 +92,25 @@ def Quotes(request):
 def Categories(request):
     return JsonResponse({"Data": list(PromptCategory.objects.all().values())})
 
-@api_view(["GET"])
+
+@api_view(["GET", "POST", "DELETE"])
 def Prompt_Response(request):
-    return JsonResponse({"Data": list(PromptResponse.objects.all().values())})
+    if request.method == "GET":
+        return JsonResponse({"Data": list(PromptResponse.objects.all().values())})
+    elif request.method == "POST":
+        prompt_response_text = request.data['prompt_response_text']
+        user_prompt_id = request.data['User_Prompt_id']
+        prompt_response = PromptResponse(prompt_response_text=prompt_response_text,
+                                         User_Prompt_id=user_prompt_id)
+        prompt_response.save()
+        print(prompt_response)
+        return JsonResponse({"200": "Success"})
+    elif request.method == "DELETE":
+        prompt_response = PromptResponse.objects.get(pk=request.data['id'])
+        print(prompt_response)
+        prompt_response.delete()
+        return JsonResponse({"300": "Removed"})
+
 
 @api_view(["GET"])
 def Calendar(request):
@@ -106,6 +123,7 @@ def Journal_Tracker(request):
 
 def Mood_Tracker(request):
     return JsonResponse({"Data": list(MoodTracker.objects.all().values())})
+
 
 def Site_Prompt(request):
     return JsonResponse({"Data": list(SitePrompt.objects.all().values())})

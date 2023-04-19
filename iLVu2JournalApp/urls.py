@@ -21,5 +21,4 @@ urlpatterns = [
     path("api/v1/siteprompt", views.Site_Prompt, name="site_prompt"),
     path("api/v1/userprompt", views.User_Prompt, name="user_prompt"),
 
-
 ]

@@ -29,6 +29,9 @@ class PromptResponse(models.Model):
     User_Prompt = models.ForeignKey(UserPrompt, null=True, on_delete=models.RESTRICT)
     prompt_response_text = models.TextField(max_length=200)
 
+    def __str__(self):
+        return f"{self.prompt_response_text}"
+
 
 class JournalTracker(models.Model):
     is_complete = models.BooleanField(default=False)
