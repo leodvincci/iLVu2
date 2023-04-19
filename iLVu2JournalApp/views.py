@@ -93,7 +93,7 @@ def Categories(request):
     return JsonResponse({"Data": list(PromptCategory.objects.all().values())})
 
 
-@api_view(["GET", "POST", "DELETE"])
+@api_view(["GET", "POST", "DELETE", "PUT"])
 def Prompt_Response(request):
     if request.method == "GET":
         return JsonResponse({"Data": list(PromptResponse.objects.all().values())})
@@ -110,6 +110,13 @@ def Prompt_Response(request):
         print(prompt_response)
         prompt_response.delete()
         return JsonResponse({"300": "Removed"})
+    elif request.method == "PUT":
+        prompt_response_text = request.data['prompt_response_text']
+
+        prompt_response = PromptResponse.objects.filter(pk=request.data['id']).update(prompt_response_text=prompt_response_text)
+        print(prompt_response)
+        return JsonResponse({"200": "Success"})
+
 
 
 @api_view(["GET"])
