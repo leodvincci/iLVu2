@@ -7,6 +7,7 @@ import TrackerPage from "../Pages/TrackerPage";
 import axios from "axios";
 import React from "react";
 import QuotePage from "../Pages/QuotePage.jsx";
+import MoodPage from "../Pages/MoodPage.jsx";
 
 
 
@@ -56,6 +57,7 @@ export default function App() {
       <Route path="/user/register/" element={<Registration/>}/>
       <Route path="/journal/tracker" element={<TrackerPage/>}/>
       <Route path="/quote" element={<QuotePage/>}/>
+      <Route path="/mood" element={<MoodPage/>}/>
 
 
     </Routes>

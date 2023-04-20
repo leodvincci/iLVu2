@@ -6,7 +6,7 @@ export default function TrackerPage(){
     const [userName, setUsername] = React.useState()
 
    
-       axios.get("http://localhost:8000/user/curr_user")
+       axios.get("/user/curr_user")
             .then(res =>{
                 console.log(res.data.user_data.fields.first_name)
                 setUsername(res.data.user_data.fields.first_name)

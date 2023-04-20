@@ -6,13 +6,8 @@ export default function QuotePage(){
 	let category = 'happiness';
     React.useEffect(()=>{
            axios.get(
-			`https://api.api-ninjas.com/v1/quotes?category=happiness`,
-			{
-				headers: {
-					'x-Api-key': "weLJ3c4aP7vYzoqqnADsbw==rT2QpjJz1MozEozg"
-				},
-			}
-		).then((res)=>{setQuote(res.data[0].quote)})
+			`api/v1/quotes`
+		).then((res)=>{setQuote(res.data.data[0].quote)})
 
     },[])
 
