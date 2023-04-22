@@ -147,14 +147,33 @@ def Journal_Tracker(request):
     return JsonResponse({"911": "Fail"})
 
 
-
+@api_view(["GET", "DELETE", 'POST'])
 def Mood_Tracker(request):
-    return JsonResponse({"Data": list(MoodTracker.objects.all().values())})
+    if request.method == "GET":
+        return JsonResponse({"Data": list(MoodTracker.objects.all().values())})
+    elif request.method == "POST":
+        mood_description = request.data["mood_description"]
+        mood_response = request.data["mood_response"]
+        moodTracker = MoodTracker(mood_description=mood_description, mood_response=mood_response)
+        moodTracker.save()
+        return JsonResponse({"200": "Success"})
+    return JsonResponse({"911": "Fail"})
+
+
 
 
 def Site_Prompt(request):
     return JsonResponse({"Data": list(SitePrompt.objects.all().values())})
 
 
+@api_view(["GET", "POST"])
 def User_Prompt(request):
-    return JsonResponse({"Data": list(UserPrompt.objects.all().values())})
+    if request.method == "GET":
+        return JsonResponse({"Data": list(UserPrompt.objects.all().values())})
+    elif request.method == "POST":
+        prompt_text = request.data["prompt_text"]
+        Prompt_Category_id = request.data["Prompt_Category_id"]
+        user_prompt = UserPrompt(prompt_text=prompt_text, Prompt_Category_id=Prompt_Category_id)
+        user_prompt.save()
+        return JsonResponse({"200": "Success"})
+    return JsonResponse({"911": "Fail"})
