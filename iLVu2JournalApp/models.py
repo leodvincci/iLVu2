@@ -39,7 +39,7 @@ class JournalTracker(models.Model):
 
 
 class MoodTracker(models.Model):
-    is_complete = models.BooleanField(default=False)
+    is_complete = models.BooleanField(default=True)
     mood_description = models.TextField(max_length=200)
     mood_response = models.TextField(max_length=50)
 
