@@ -113,19 +113,39 @@ def Prompt_Response(request):
     elif request.method == "PUT":
         prompt_response_text = request.data['prompt_response_text']
 
-        prompt_response = PromptResponse.objects.filter(pk=request.data['id']).update(prompt_response_text=prompt_response_text)
+        prompt_response = PromptResponse.objects.filter(pk=request.data['id']).update(
+            prompt_response_text=prompt_response_text)
         print(prompt_response)
         return JsonResponse({"200": "Success"})
 
 
-
-@api_view(["GET"])
+@api_view(["GET", "POST", "DELETE", "PUT"])
 def Calendar(request):
-    return JsonResponse({"Data": list(TheCalendar.objects.all().values())})
+    if request.method == "GET":
+        return JsonResponse({"Data": list(TheCalendar.objects.all().values())})
+    elif request.method == "POST":
+        date = request.data['date']
+        Journal_Tracker_Id = request.data['Journal_Tracker_id']
+        # Mood_Tracker_id = request.data['Mood_Tracker_id']
+        App_user_id = request.data['App_user_id']
+        cal_item = TheCalendar(date=date, Journal_Tracker_id=Journal_Tracker_Id,
+                               App_user_id=App_user_id)
+        cal_item.save()
+        return JsonResponse({"200": "Success"})
+    return JsonResponse({"911": "Fail"})
 
 
+@api_view(["GET", "POST", "DELETE"])
 def Journal_Tracker(request):
-    return JsonResponse({"Data": list(JournalTracker.objects.all().values())})
+    if request.method == "GET":
+        return JsonResponse({"Data": list(JournalTracker.objects.all().values())})
+    elif request.method == "POST":
+        prompt_response_id = request.data['Prompt_Response_id']
+        Journal_Tracker = JournalTracker(Prompt_Response_id=prompt_response_id)
+        Journal_Tracker.save()
+        return JsonResponse({"200": "Success"})
+    return JsonResponse({"911": "Fail"})
+
 
 
 def Mood_Tracker(request):
