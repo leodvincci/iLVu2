@@ -4,6 +4,7 @@ import Registration from "../Pages/RegistrationPage"
 import HomePage from "../Pages/HomePage"
 import { BsChatLeftHeart } from 'react-icons/bs';
 import TrackerPage from "../Pages/TrackerPage";
+import TrackerPage_2 from "../Pages/TrackerPage_2";
 import axios from "axios";
 import React from "react";
 import QuotePage from "../Pages/QuotePage.jsx";
@@ -36,9 +37,12 @@ export default function App() {
   </div>
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Journal Prompt</a></li>
- 
+      <li><a>Journal Entry</a></li>
       <Link to={"/mood"}><li><a>Mood Check-In</a></li> </Link>
+      <li className={`text-3xl`}> | </li>
+       <Link to={"/journal/tracker"}><li><a>Journal Tracker</a></li> </Link>
+
+      <Link to={"/mood/tracker"}><li><a>Mood Tracker</a></li> </Link>
       <Link to={"/quote"}><li><a>Quote</a></li></Link>
 
       <button onClick={handleLogOut} className="btn btn-error">Logout</button>
@@ -56,6 +60,7 @@ export default function App() {
       <Route path="/user/login/" element={<LoginPage/>}/>
       <Route path="/user/register/" element={<Registration/>}/>
       <Route path="/journal/tracker" element={<TrackerPage/>}/>
+      <Route path="/mood/tracker" element={<TrackerPage_2/>}/>
       <Route path="/quote" element={<QuotePage/>}/>
       <Route path="/mood" element={<MoodPage/>}/>
 

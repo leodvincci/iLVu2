@@ -50,14 +50,14 @@ export default function TrackerPage(){
           <h1>Welcome {userName}!</h1>
 
          }
-                         <div className={`flex flex-col p-8 w-screen`}>
+            <div className={`flex flex-col p-8 w-screen`}>
 
-                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-slate-500 text-white`}>
+                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-slate-900 text-white `}>
 
                          {
                              theDates.map(d=>{
                         let a1 = new Date(new Date(d).getFullYear(),new Date(d).getMonth(),new Date(d).getDate())
-                    {{return <Block aDate={a1}/>}}
+                    {{return <Block_2 aDate={a1}/>}}
 
                          })
                          }
@@ -66,6 +66,7 @@ export default function TrackerPage(){
                                 </div>
 
             </div>
+
         </div>
     )
 }
