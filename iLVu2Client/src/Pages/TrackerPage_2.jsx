@@ -50,9 +50,9 @@ export default function TrackerPage(){
           <h1>Welcome {userName}!</h1>
 
          }
-            <div className={`flex flex-col p-8 w-screen`}>
+            <div className={`flex flex-col p-8 w-screen items-center`}>
 
-                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-slate-900 text-white `}>
+                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-blue-800 text-white p-9`}>
 
                          {
                              theDates.map(d=>{

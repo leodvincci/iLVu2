@@ -26,7 +26,7 @@ React.useEffect(()=>{
     }
 
     return(
-            <div className={` text-[10px] rounded border-2 border-black w-[3rem] p-3 ${my_bg}`}>
+            <div className={`text-[10px] rounded border-2 border-slate-400 w-[3rem] p-3 m-1 ${my_bg}`}>
                 <p>{props.aDate.toDateString().split(" ")[1]}{props.aDate.toDateString().split(" ")[2]}</p>
                                 </div>
     )

@@ -21,12 +21,12 @@ React.useEffect(()=>{
     for(let x of moodData){
         if(props.aDate.toString() === x.toString()){
             console.log(props.aDate.toString() , "----", x.toString())
-           my_bg = "bg-purple-400"
+           my_bg = "bg-green-500"
         }
     }
 
     return(
-            <div className={` text-[10px] rounded border-2 border-black w-[3rem] p-3 ${my_bg}`}>
+            <div className={`text-[10px] rounded border-2 border-slate-400 w-[3rem] p-3 m-1 ${my_bg}`}>
                 <p>{props.aDate.toDateString().split(" ")[1]}{props.aDate.toDateString().split(" ")[2]}</p>
                                 </div>
     )

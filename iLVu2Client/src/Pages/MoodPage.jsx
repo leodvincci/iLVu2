@@ -30,7 +30,7 @@ export  default function MoodPage(){
         }).then((res)=>{
                     axios.post("/api/v1/calendar", {
                         Mood_Tracker_id: res.data.Mood_Tracker_id,
-                        App_user_id: 1,
+                        App_user_id: 2,
                         date: new Date(8.64e15).toString()
                     }).then(r =>{console.log("SUCCESS!")})
         })
