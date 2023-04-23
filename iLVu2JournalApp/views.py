@@ -121,14 +121,21 @@ def Prompt_Response(request):
 
 @api_view(["GET", "POST", "DELETE", "PUT"])
 def Calendar(request):
+    Journal_Tracker_Id = None
+    Mood_Tracker_id = None
     if request.method == "GET":
         return JsonResponse({"Data": list(TheCalendar.objects.all().values())})
     elif request.method == "POST":
+        for d in request.data:
+            if d == "Journal_Tracker_id":
+                Journal_Tracker_Id = request.data[d]
+            elif d == "Mood_Tracker_id":
+                Mood_Tracker_id = request.data[d]
+
         date = request.data['date']
-        Journal_Tracker_Id = request.data['Journal_Tracker_id']
-        # Mood_Tracker_id = request.data['Mood_Tracker_id']
+
         App_user_id = request.data['App_user_id']
-        cal_item = TheCalendar(date=date, Journal_Tracker_id=Journal_Tracker_Id,
+        cal_item = TheCalendar(date=date, Journal_Tracker_id=Journal_Tracker_Id,Mood_Tracker_id=Mood_Tracker_id,
                                App_user_id=App_user_id)
         cal_item.save()
         return JsonResponse({"200": "Success"})
@@ -156,7 +163,9 @@ def Mood_Tracker(request):
         mood_response = request.data["mood_response"]
         moodTracker = MoodTracker(mood_description=mood_description, mood_response=mood_response)
         moodTracker.save()
-        return JsonResponse({"200": "Success"})
+        print("ID: ", moodTracker.pk)
+
+        return JsonResponse({"Mood_Tracker_id":moodTracker.pk})
     return JsonResponse({"911": "Fail"})
 
 
