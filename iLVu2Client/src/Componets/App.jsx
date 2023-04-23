@@ -38,8 +38,8 @@ export default function App() {
     <ul className="menu menu-horizontal px-1">
       <li><a>Journal Prompt</a></li>
  
-      <li><a>Mood Check-In</a></li>
-      <li><a>Quote</a></li>
+      <Link to={"/mood"}><li><a>Mood Check-In</a></li> </Link>
+      <Link to={"/quote"}><li><a>Quote</a></li></Link>
 
       <button onClick={handleLogOut} className="btn btn-error">Logout</button>
       {/*{navState === true ? <Navigate to={"/"}/> : ""}*/}

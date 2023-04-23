@@ -43,7 +43,7 @@ export  default function MoodPage(){
     return (
             <div className={`flex flex-col items-center h-screen w-screen justify-center `}>
 
-                <div className={`flex flex-row w-1/4 p-10 h-[20rem] flex-wrap overflow-scroll items-center justify-center`}>
+                <div className={`flex flex-row w-2/4 p-10 h-[20rem] flex-wrap overflow-scroll items-center justify-center`}>
                     {
                       moodEmojis !== undefined ?
                           moodEmojis[0].map(e =>{

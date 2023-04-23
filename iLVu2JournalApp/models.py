@@ -45,7 +45,7 @@ class MoodTracker(models.Model):
 
 
 class Calendar(models.Model):
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     Journal_Tracker = models.ForeignKey(JournalTracker, null=True, on_delete=models.CASCADE)
     Mood_Tracker = models.ForeignKey(MoodTracker, null=True, on_delete=models.CASCADE)
     App_user = models.ForeignKey(User, on_delete=models.CASCADE)
