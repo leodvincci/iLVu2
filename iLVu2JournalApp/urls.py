@@ -13,5 +13,12 @@ urlpatterns = [
     path("journal/tracker", views.index, name="journal_tracker"),
     path("api/v1/emojis", views.Emojis, name="emoji"),
     path("api/v1/quotes", views.Quotes, name="quotes"),
+    path("api/v1/calendar", views.Calendar, name="calendar"),
+    path("api/v1/journaltracker", views.Journal_Tracker, name="journal_tracker"),
+    path("api/v1/moodtracker", views.Mood_Tracker, name="mood_tracker"),
+    path("api/v1/categories", views.Categories, name="categories"),
+    path("api/v1/promptresponse", views.Prompt_Response, name="promptresponse"),
+    path("api/v1/siteprompt", views.Site_Prompt, name="site_prompt"),
+    path("api/v1/userprompt", views.User_Prompt, name="user_prompt"),
 
 ]
