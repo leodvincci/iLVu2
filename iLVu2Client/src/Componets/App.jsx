@@ -37,13 +37,16 @@ export default function App() {
   </div>
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Journal Entry</a></li>
+      <li><a>Journal Prompts</a></li>
       <Link to={"/mood"}><li><a>Mood Check-In</a></li> </Link>
       <li className={`text-3xl`}> | </li>
        <Link to={"/journal/tracker"}><li><a>Journal Tracker</a></li> </Link>
 
       <Link to={"/mood/tracker"}><li><a>Mood Tracker</a></li> </Link>
+            <li className={`text-3xl`}> | </li>
+
       <Link to={"/quote"}><li><a>Quote</a></li></Link>
+
 
       <button onClick={handleLogOut} className="btn btn-error">Logout</button>
       {/*{navState === true ? <Navigate to={"/"}/> : ""}*/}

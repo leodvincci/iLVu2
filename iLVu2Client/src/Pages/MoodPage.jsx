@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, {Axios} from "axios";
 import React from "react";
 
 export  default function MoodPage(){
@@ -22,17 +22,36 @@ export  default function MoodPage(){
 
     }, [])
 
+    function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+const csrftoken = getCookie('csrftoken');
+
 
     function handleSubmit() {
+        console.log(csrftoken)
         axios.post("/api/v1/moodtracker",{
             mood_description: moodDescription,
             mood_response: mood
-        }).then((res)=>{
+        },{xsrfHeaderName:"X-CSRFToken", headers:{'X-CSRFToken': csrftoken}}).then((res)=>{
                     axios.post("/api/v1/calendar", {
                         Mood_Tracker_id: res.data.Mood_Tracker_id,
                         App_user_id: 2,
                         date: new Date(8.64e15).toString()
-                    }).then(r =>{console.log("SUCCESS!")})
+                    },{xsrfHeaderName:"X-CSRFToken", headers:{'X-CSRFToken': csrftoken}}).then(r =>{console.log("SUCCESS!")})
         })
     }
 
@@ -43,7 +62,7 @@ export  default function MoodPage(){
     return (
             <div className={`flex flex-col items-center h-screen w-screen justify-center `}>
 
-                <div className={`flex flex-row w-2/4 p-10 h-[20rem] flex-wrap overflow-scroll items-center justify-center`}>
+                <div className={`flex flex-row w-3/4 p-10 h-[20rem] flex-wrap overflow-scroll items-center justify-center`}>
                     {
                       moodEmojis !== undefined ?
                           moodEmojis[0].map(e =>{

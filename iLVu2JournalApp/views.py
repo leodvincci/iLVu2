@@ -154,6 +154,7 @@ def Journal_Tracker(request):
     return JsonResponse({"911": "Fail"})
 
 
+
 @api_view(["GET", "DELETE", 'POST'])
 def Mood_Tracker(request):
     if request.method == "GET":
