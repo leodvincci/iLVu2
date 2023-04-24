@@ -6,12 +6,14 @@ import Block_2 from "../Componets/Block_2.jsx";
 
 export default function TrackerPage(){
 
+
+
     const [userName, setUsername] = React.useState()
     const [userID, setUserId] = React.useState()
-    console.log("USERID: ",userID)
+    // console.log("USERID: ",userID)
        axios.get("/user/curr_user")
             .then(res =>{
-                console.log(res.data.user_data.pk)
+                // console.log(res.data.user_data.pk)
                 setUserId(res.data.user_data.pk)
             }).catch(((err)=>{
                 console.log(err)
@@ -35,31 +37,20 @@ export default function TrackerPage(){
     dateGen(2023,1,1,2023,12,31)
 
 
-   
-       axios.get("/user/curr_user")
-            .then(res =>{
-                console.log(res.data.user_data.fields.first_name)
-                setUsername(res.data.user_data.fields.first_name)
-            }).catch(((err)=>{
-                setUsername(null)
-                console.log(err)
-            }))
-  
-
-
-     
     
 
     return(
         
         <div>
 
-
             {
             userName === null ? document.location.href = "/user/login" : 
           <h1>Welcome {userName}!</h1>
 
+
          }
+                     <h1>Mood Tracker</h1>
+
             <div className={`flex flex-col p-8 w-screen items-center`}>
 
                                  <div className={`flex flex-row w-fit flex-wrap rounded bg-blue-800 text-white p-9`}>
