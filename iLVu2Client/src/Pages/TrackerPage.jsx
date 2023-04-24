@@ -29,6 +29,7 @@ export default function TrackerPage(){
        axios.get("/user/curr_user")
             .then(res =>{
                 console.log(res.data.user_data.fields.first_name)
+                console.log(res.data.user_data.pk)
                 setUsername(res.data.user_data.fields.first_name)
             }).catch(((err)=>{
                 setUsername(null)

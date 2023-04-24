@@ -61,11 +61,12 @@ def user_logout(request):
 
 @api_view(["GET"])
 def curr_user(request):
-    data = serializers.serialize("json", [request.user], fields=["first_name"])
+    data = serializers.serialize("json", [request.user], fields=["first_name", "id"])
     data_workable = json.loads(data)
     user = request.user
     if user.is_authenticated:
         print("USER Authenticated")
+        print(data_workable)
         return JsonResponse({"user_data": data_workable[0]})
     else:
         print("USER NOT SIGNED IN!")

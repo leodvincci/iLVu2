@@ -5,6 +5,17 @@ export  default function MoodPage(){
     const [moodEmojis, setMoodEmoji] = React.useState()
     const [mood, setMood] = React.useState()
     const [moodDescription, setMoodDescription] = React.useState()
+
+    const [userID, setUserId] = React.useState()
+    console.log("USERID: ",userID)
+       axios.get("/user/curr_user")
+            .then(res =>{
+                console.log(res.data.user_data.pk)
+                setUserId(res.data.user_data.pk)
+            }).catch(((err)=>{
+                console.log(err)
+            }))
+
     console.log(mood)
     console.log(moodEmojis)
     console.log(moodDescription)
@@ -49,7 +60,7 @@ const csrftoken = getCookie('csrftoken');
         },{xsrfHeaderName:"X-CSRFToken", headers:{'X-CSRFToken': csrftoken}}).then((res)=>{
                     axios.post("/api/v1/calendar", {
                         Mood_Tracker_id: res.data.Mood_Tracker_id,
-                        App_user_id: 2,
+                        App_user_id: userID,
                         date: new Date(8.64e15).toString()
                     },{xsrfHeaderName:"X-CSRFToken", headers:{'X-CSRFToken': csrftoken}}).then(r =>{console.log("SUCCESS!")})
         })

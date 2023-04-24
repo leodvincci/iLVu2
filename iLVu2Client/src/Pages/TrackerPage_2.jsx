@@ -7,6 +7,16 @@ import Block_2 from "../Componets/Block_2.jsx";
 export default function TrackerPage(){
 
     const [userName, setUsername] = React.useState()
+    const [userID, setUserId] = React.useState()
+    console.log("USERID: ",userID)
+       axios.get("/user/curr_user")
+            .then(res =>{
+                console.log(res.data.user_data.pk)
+                setUserId(res.data.user_data.pk)
+            }).catch(((err)=>{
+                console.log(err)
+            }))
+
 
     const theDates = []
 
