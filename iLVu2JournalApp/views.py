@@ -165,7 +165,7 @@ def Journal_Tracker(request):
 @api_view(["GET", "DELETE", 'POST'])
 def Mood_Tracker(request):
     if request.method == "GET":
-        return JsonResponse({"Data": list(MoodTracker.objects.all().values())})
+        return JsonResponse({"Data": list(MoodTracker.objects.filter(App_User_id = request.user.id).values())})
     elif request.method == "POST":
         mood_description = request.data["mood_description"]
         mood_response = request.data["mood_response"]
