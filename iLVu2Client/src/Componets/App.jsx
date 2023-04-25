@@ -47,6 +47,8 @@ export default function App() {
       <li className={`text-3xl`}> | </li>
 
             <Link to={"/mood"}><li><a>Mood Check-In</a></li> </Link>
+             <Link to={"/resp"}><li><a>Mood Responses</a></li> </Link>
+
 
       <Link to={"/mood/tracker"}><li><a>Mood Tracker</a></li> </Link>
             <li className={`text-3xl`}> | </li>
