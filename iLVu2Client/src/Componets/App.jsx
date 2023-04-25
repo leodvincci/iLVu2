@@ -41,9 +41,12 @@ export default function App() {
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
       <Link to={"/journal/category"}><li><a>Journal Prompts</a></li></Link>
-      <Link to={"/mood"}><li><a>Mood Check-In</a></li> </Link>
+       <Link to={"/resp"}><li><a>Journal Responses</a></li> </Link>
+             <Link to={"/journal/tracker"}><li><a>Journal Tracker</a></li> </Link>
+
       <li className={`text-3xl`}> | </li>
-       <Link to={"/journal/tracker"}><li><a>Journal Tracker</a></li> </Link>
+
+            <Link to={"/mood"}><li><a>Mood Check-In</a></li> </Link>
 
       <Link to={"/mood/tracker"}><li><a>Mood Tracker</a></li> </Link>
             <li className={`text-3xl`}> | </li>
