@@ -74,9 +74,6 @@ const csrftoken = getCookie('csrftoken');
             })})}
 
 
-
-
-
     return(
         <div>
 
