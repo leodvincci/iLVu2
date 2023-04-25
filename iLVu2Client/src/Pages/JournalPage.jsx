@@ -52,10 +52,30 @@ const csrftoken = getCookie('csrftoken');
     function handleTheSubmit() {
         console.log("SUB")
         axios.post("/api/v1/promptresponse", {
-            prompt_response_text:promptReponse,
-            Site_Prompt_id:promptid
-        },{xsrfHeaderName:"X-CSRFToken", headers:{'X-CSRFToken': csrftoken}}).then(r =>{console.log("SUCCESS!")})
-    }
+            prompt_response_text: promptReponse,
+            Site_Prompt_id: promptid
+        }, {xsrfHeaderName: "X-CSRFToken", headers: {'X-CSRFToken': csrftoken}})
+
+            .then((res) => {
+                console.log(res)
+                axios.post("/api/v1/journaltracker", {
+                    Prompt_Response_id: res.data.prompt_response_id
+                }, {xsrfHeaderName: "X-CSRFToken", headers: {'X-CSRFToken': csrftoken}})
+
+            .then((res) => {
+                // console.log("RES::: ",res)
+                axios.post("/api/v1/calendar", {
+                    Journal_Tracker_id: res.data.Journal_Tracker,
+                    date: new Date(8.64e15).toString()
+                }, {xsrfHeaderName: "X-CSRFToken", headers: {'X-CSRFToken': csrftoken}})
+                    .then(r => {
+                        console.log("SUCCESS!")
+                    })
+            })})}
+
+
+
+
 
     return(
         <div>

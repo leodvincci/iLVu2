@@ -112,7 +112,7 @@ def Prompt_Response(request):
                                          Site_Prompt_id=site_prompt_id, App_User_id=request.user.id)
         prompt_response.save()
         print(prompt_response)
-        return JsonResponse({"200": "Success"})
+        return JsonResponse({"prompt_response_id": prompt_response.pk})
     elif request.method == "DELETE":
         prompt_response = PromptResponse.objects.get(pk=request.data['id'])
         print(prompt_response)
@@ -142,7 +142,7 @@ def Calendar(request):
 
         date = request.data['date']
 
-        App_user_id = request.data['App_user_id']
+        App_user_id = request.user.id
         cal_item = TheCalendar(date=date, Journal_Tracker_id=Journal_Tracker_Id, Mood_Tracker_id=Mood_Tracker_id,
                                App_user_id=App_user_id)
         cal_item.save()
@@ -158,7 +158,8 @@ def Journal_Tracker(request):
         prompt_response_id = request.data['Prompt_Response_id']
         Journal_Tracker = JournalTracker(Prompt_Response_id=prompt_response_id)
         Journal_Tracker.save()
-        return JsonResponse({"200": "Success"})
+        print("JournalPK: ", Journal_Tracker.pk)
+        return JsonResponse({"Journal_Tracker": Journal_Tracker.pk})
     return JsonResponse({"911": "Fail"})
 
 
