@@ -82,7 +82,7 @@ const csrftoken = getCookie('csrftoken');
                       moodEmojis !== undefined ?
                           moodEmojis[0].map(e =>{
                                        return (
-                                      <h1 onClick={()=>{ setMood(e.slug) }} className={`text-[5rem] hover:text-[6rem] hover:cursor-pointer p-9`}>{e.character}</h1>
+                                      <h1 onClick={()=>{ setMood(e.character) }} className={`text-[5rem] hover:text-[6rem] hover:cursor-pointer p-9`}>{e.character}</h1>
                                   )
                           })
                           : ""
