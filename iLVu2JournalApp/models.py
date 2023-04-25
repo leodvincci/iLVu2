@@ -28,6 +28,7 @@ class PromptResponse(models.Model):
     Site_Prompt = models.ForeignKey(SitePrompt, null=True, on_delete=models.RESTRICT)
     User_Prompt = models.ForeignKey(UserPrompt, null=True, on_delete=models.RESTRICT)
     prompt_response_text = models.TextField(max_length=200)
+    App_User = models.ForeignKey(User, null=False, on_delete=models.RESTRICT)
 
     def __str__(self):
         return f"{self.prompt_response_text}"

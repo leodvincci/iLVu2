@@ -6,15 +6,15 @@ import axios from "axios";
 
 export default function JournalPromptPage(){
     const [catData, setCatData] = React.useState([])
-      const { id } = useParams();
+      const { site_prompt_id } = useParams();
 
     console.log("CatData: ",catData)
-    console.log("CatID: ",id)
+    console.log("CatID: ",site_prompt_id)
 
 
 
     React.useEffect(()=>{
-        axios.get(`/api/v1/siteprompt?id=${id}`)
+        axios.get(`/api/v1/promptresponse?site_prompt_id=${site_prompt_id}`)
             .then((res)=>{
                 setCatData([...res.data.Data])
             })
@@ -25,7 +25,14 @@ export default function JournalPromptPage(){
 
                   <div className={`flex flex-row flex-wrap`}>
                 {catData.map(d=>{
-                    return <JournalPromptCard btnTxt={"View Response"} catID={d.id} promptID={d.Prompt_Category_id} catName={d.prompt_text} catDesc={d.prompt_text}/>
+                    return (
+                        <div>
+                            <div className="chat chat-end">
+                          <div className="chat-bubble chat-bubble-success">{d.prompt_response_text}</div>
+                        </div>
+                        </div>
+
+                    )
                 })}
                  </div>
 

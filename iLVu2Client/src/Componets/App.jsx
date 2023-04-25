@@ -76,7 +76,7 @@ export default function App() {
       <Route path="/journal/category" element={<JournalCategoryPage/>}/>
       <Route path="/journal/response/category" element={<JournalCategoryResponsePage/>}/>
       <Route path="/journal/prompt/:id" element={<JournalPromptPage/>}/>
-      <Route path="/journal/prompt/response" element={<JournalPromptResponsePage/>}/>
+      <Route path="/journal/prompt/:site_prompt_id/response" element={<JournalPromptResponsePage/>}/>
       <Route path="/journal/prompt/:promptid/:catid/response" element={<JournalPage/>}/>
       <Route path="/mood/tracker" element={<TrackerPage_2/>}/>
       <Route path="/quote" element={<QuotePage/>}/>

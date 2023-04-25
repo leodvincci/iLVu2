@@ -97,7 +97,13 @@ def Categories(request):
 @api_view(["GET", "POST", "DELETE", "PUT"])
 def Prompt_Response(request):
     if request.method == "GET":
-        return JsonResponse({"Data": list(PromptResponse.objects.all().values())})
+        query = request.GET.get('user_id')
+        query_2 = request.GET.get('site_prompt_id')
+        # print(query)
+        # print(query_2)
+        # print(request.user.id)
+        # print(list(PromptResponse.objects.filter(Site_Prompt_id=query_2, App_User_id=request.user.id).values()))
+        return JsonResponse({"Data": list(PromptResponse.objects.filter(Site_Prompt_id=query_2, App_User_id=request.user.id).values())})
     elif request.method == "POST":
         prompt_response_text = request.data['prompt_response_text']
         user_prompt_id = request.data['User_Prompt_id']
