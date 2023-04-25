@@ -9,6 +9,8 @@ import axios from "axios";
 import React from "react";
 import QuotePage from "../Pages/QuotePage.jsx";
 import MoodPage from "../Pages/MoodPage.jsx";
+import JournalCategoryPage from "../Pages/JournalCategoryPage.jsx";
+import JournalPromptPage from "../Pages/JournalPromptPage.jsx";
 
 
 
@@ -37,7 +39,7 @@ export default function App() {
   </div>
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Journal Prompts</a></li>
+      <Link to={"/journal/category"}><li><a>Journal Prompts</a></li></Link>
       <Link to={"/mood"}><li><a>Mood Check-In</a></li> </Link>
       <li className={`text-3xl`}> | </li>
        <Link to={"/journal/tracker"}><li><a>Journal Tracker</a></li> </Link>
@@ -63,6 +65,8 @@ export default function App() {
       <Route path="/user/login/" element={<LoginPage/>}/>
       <Route path="/user/register/" element={<Registration/>}/>
       <Route path="/journal/tracker" element={<TrackerPage/>}/>
+      <Route path="/journal/category" element={<JournalCategoryPage/>}/>
+      <Route path="/journal/prompt/:id" element={<JournalPromptPage/>}/>
       <Route path="/mood/tracker" element={<TrackerPage_2/>}/>
       <Route path="/quote" element={<QuotePage/>}/>
       <Route path="/mood" element={<MoodPage/>}/>

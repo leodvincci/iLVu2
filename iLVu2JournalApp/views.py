@@ -174,7 +174,10 @@ def Mood_Tracker(request):
 
 
 def Site_Prompt(request):
-    return JsonResponse({"Data": list(SitePrompt.objects.all().values())})
+    query = request.GET.get('id')
+    print(query)
+    print(list(SitePrompt.objects.filter(Prompt_Category_id=4).values()))
+    return JsonResponse({"Data": list(SitePrompt.objects.filter(Prompt_Category_id=query).values())})
 
 
 @api_view(["GET", "POST"])
