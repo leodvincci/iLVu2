@@ -169,7 +169,9 @@ def Mood_Tracker(request):
     elif request.method == "POST":
         mood_description = request.data["mood_description"]
         mood_response = request.data["mood_response"]
-        moodTracker = MoodTracker(mood_description=mood_description, mood_response=mood_response)
+        theDate = request.data['date']
+        app_user_id = request.data['App_user_id']
+        moodTracker = MoodTracker(mood_description=mood_description, mood_response=mood_response, App_User_id=app_user_id ,date = theDate)
         moodTracker.save()
         print("ID: ", moodTracker.pk)
 

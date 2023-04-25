@@ -14,6 +14,7 @@ import JournalPromptPage from "../Pages/JournalPromptPage.jsx";
 import JournalPromptResponsePage from "../Pages/JournalPromptResponsePage.jsx";
 import JournalPage from "../Pages/JournalPage.jsx";
 import JournalCategoryResponsePage from "../Pages/JournalCategoryResponsePage.jsx";
+import MoodResponsePage from "../Pages/MoodResponsePage.jsx";
 
 
 
@@ -49,7 +50,7 @@ export default function App() {
       <li className={`text-3xl`}> | </li>
 
             <Link to={"/mood"}><li><a>Mood Check-In</a></li> </Link>
-             <Link to={"/resp"}><li><a>Mood Responses</a></li> </Link>
+             <Link to={"/mood/responses"}><li><a>Mood Responses</a></li> </Link>
 
 
       <Link to={"/mood/tracker"}><li><a>Mood Tracker</a></li> </Link>
@@ -79,6 +80,7 @@ export default function App() {
       <Route path="/journal/prompt/:site_prompt_id/response" element={<JournalPromptResponsePage/>}/>
       <Route path="/journal/prompt/:promptid/:catid/response" element={<JournalPage/>}/>
       <Route path="/mood/tracker" element={<TrackerPage_2/>}/>
+      <Route path="/mood/responses" element={<MoodResponsePage/>}/>
       <Route path="/quote" element={<QuotePage/>}/>
       <Route path="/mood" element={<MoodPage/>}/>
 

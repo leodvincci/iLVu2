@@ -54,9 +54,13 @@ const csrftoken = getCookie('csrftoken');
 
     function handleSubmit() {
         console.log(csrftoken)
+        console.log("THE USERID: ",userID)
         axios.post("/api/v1/moodtracker",{
             mood_description: moodDescription,
-            mood_response: mood
+            mood_response: mood,
+            App_user_id: userID,
+            date: new Date(8.64e15).toString()
+
         },{xsrfHeaderName:"X-CSRFToken", headers:{'X-CSRFToken': csrftoken}}).then((res)=>{
                     axios.post("/api/v1/calendar", {
                         Mood_Tracker_id: res.data.Mood_Tracker_id,

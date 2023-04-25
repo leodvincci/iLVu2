@@ -43,7 +43,13 @@ class MoodTracker(models.Model):
     is_complete = models.BooleanField(default=True)
     mood_description = models.TextField(max_length=200)
     mood_response = models.TextField(max_length=50)
+    mood_response = models.TextField(max_length=50)
     App_User = models.ForeignKey(User, null=False, on_delete=models.RESTRICT)
+    date = models.DateField(auto_now_add=True, null=True)
+
+
+
+
 
 
 
