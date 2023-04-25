@@ -6,7 +6,18 @@ import Block_2 from "../Componets/Block_2.jsx";
 
 export default function TrackerPage(){
 
+
+
     const [userName, setUsername] = React.useState()
+    const [userID, setUserId] = React.useState()
+    // console.log("USERID: ",userID)
+       axios.get("/user/curr_user")
+            .then(res =>{
+                // console.log(res.data.user_data.pk)
+                setUserId(res.data.user_data.pk)
+            }).catch(((err)=>{
+                console.log(err)
+            }))
 
 
     const theDates = []
@@ -26,40 +37,28 @@ export default function TrackerPage(){
     dateGen(2023,1,1,2023,12,31)
 
 
-   
-       axios.get("/user/curr_user")
-            .then(res =>{
-                console.log(res.data.user_data.fields.first_name)
-                console.log(res.data.user_data.pk)
-                setUsername(res.data.user_data.fields.first_name)
-            }).catch(((err)=>{
-                setUsername(null)
-                console.log(err)
-            }))
-  
-
-
-     
     
 
     return(
         
         <div>
 
-
             {
             userName === null ? document.location.href = "/user/login" : 
           <h1>Welcome {userName}!</h1>
 
+
          }
+                     <h1>Mood Tracker</h1>
+
             <div className={`flex flex-col p-8 w-screen items-center`}>
 
-                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-yellow-500 text-white p-9`}>
+                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-blue-800 text-white p-9`}>
 
                          {
                              theDates.map(d=>{
                         let a1 = new Date(new Date(d).getFullYear(),new Date(d).getMonth(),new Date(d).getDate())
-                    {{return <Block aDate={a1}/>}}
+                    {{return <Block_2 aDate={a1}/>}}
 
                          })
                          }
@@ -68,6 +67,7 @@ export default function TrackerPage(){
                                 </div>
 
             </div>
+
         </div>
     )
 }

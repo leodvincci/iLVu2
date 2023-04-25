@@ -28,6 +28,7 @@ class PromptResponse(models.Model):
     Site_Prompt = models.ForeignKey(SitePrompt, null=True, on_delete=models.RESTRICT)
     User_Prompt = models.ForeignKey(UserPrompt, null=True, on_delete=models.RESTRICT)
     prompt_response_text = models.TextField(max_length=200)
+    App_User = models.ForeignKey(User, null=False, on_delete=models.RESTRICT)
 
     def __str__(self):
         return f"{self.prompt_response_text}"
@@ -42,10 +43,18 @@ class MoodTracker(models.Model):
     is_complete = models.BooleanField(default=True)
     mood_description = models.TextField(max_length=200)
     mood_response = models.TextField(max_length=50)
+    mood_response = models.TextField(max_length=50)
+    App_User = models.ForeignKey(User, null=False, on_delete=models.RESTRICT)
+    date = models.DateField(auto_now_add=True, null=True)
+
+
+
+
+
 
 
 class Calendar(models.Model):
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     Journal_Tracker = models.ForeignKey(JournalTracker, null=True, on_delete=models.CASCADE)
     Mood_Tracker = models.ForeignKey(MoodTracker, null=True, on_delete=models.CASCADE)
     App_user = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -61,11 +61,12 @@ def user_logout(request):
 
 @api_view(["GET"])
 def curr_user(request):
-    data = serializers.serialize("json", [request.user], fields=["first_name"])
+    data = serializers.serialize("json", [request.user], fields=["first_name", "id"])
     data_workable = json.loads(data)
     user = request.user
     if user.is_authenticated:
         print("USER Authenticated")
+        print(data_workable)
         return JsonResponse({"user_data": data_workable[0]})
     else:
         print("USER NOT SIGNED IN!")
@@ -96,7 +97,13 @@ def Categories(request):
 @api_view(["GET", "POST", "DELETE", "PUT"])
 def Prompt_Response(request):
     if request.method == "GET":
-        return JsonResponse({"Data": list(PromptResponse.objects.all().values())})
+        query = request.GET.get('user_id')
+        query_2 = request.GET.get('site_prompt_id')
+        # print(query)
+        # print(query_2)
+        # print(request.user.id)
+        # print(list(PromptResponse.objects.filter(Site_Prompt_id=query_2, App_User_id=request.user.id).values()))
+        return JsonResponse({"Data": list(PromptResponse.objects.filter(Site_Prompt_id=query_2, App_User_id=request.user.id).values())})
     elif request.method == "POST":
         prompt_response_text = request.data['prompt_response_text']
         user_prompt_id = request.data['User_Prompt_id']
@@ -121,14 +128,21 @@ def Prompt_Response(request):
 
 @api_view(["GET", "POST", "DELETE", "PUT"])
 def Calendar(request):
+    Journal_Tracker_Id = None
+    Mood_Tracker_id = None
     if request.method == "GET":
         return JsonResponse({"Data": list(TheCalendar.objects.all().values())})
     elif request.method == "POST":
+        for d in request.data:
+            if d == "Journal_Tracker_id":
+                Journal_Tracker_Id = request.data[d]
+            elif d == "Mood_Tracker_id":
+                Mood_Tracker_id = request.data[d]
+
         date = request.data['date']
-        Journal_Tracker_Id = request.data['Journal_Tracker_id']
-        # Mood_Tracker_id = request.data['Mood_Tracker_id']
+
         App_user_id = request.data['App_user_id']
-        cal_item = TheCalendar(date=date, Journal_Tracker_id=Journal_Tracker_Id,
+        cal_item = TheCalendar(date=date, Journal_Tracker_id=Journal_Tracker_Id,Mood_Tracker_id=Mood_Tracker_id,
                                App_user_id=App_user_id)
         cal_item.save()
         return JsonResponse({"200": "Success"})
@@ -147,6 +161,7 @@ def Journal_Tracker(request):
     return JsonResponse({"911": "Fail"})
 
 
+
 @api_view(["GET", "DELETE", 'POST'])
 def Mood_Tracker(request):
     if request.method == "GET":
@@ -154,16 +169,23 @@ def Mood_Tracker(request):
     elif request.method == "POST":
         mood_description = request.data["mood_description"]
         mood_response = request.data["mood_response"]
-        moodTracker = MoodTracker(mood_description=mood_description, mood_response=mood_response)
+        theDate = request.data['date']
+        app_user_id = request.data['App_user_id']
+        moodTracker = MoodTracker(mood_description=mood_description, mood_response=mood_response, App_User_id=app_user_id ,date = theDate)
         moodTracker.save()
-        return JsonResponse({"200": "Success"})
+        print("ID: ", moodTracker.pk)
+
+        return JsonResponse({"Mood_Tracker_id":moodTracker.pk})
     return JsonResponse({"911": "Fail"})
 
 
 
 
 def Site_Prompt(request):
-    return JsonResponse({"Data": list(SitePrompt.objects.all().values())})
+    query = request.GET.get('id')
+    print(query)
+    print(list(SitePrompt.objects.filter(Prompt_Category_id=4).values()))
+    return JsonResponse({"Data": list(SitePrompt.objects.filter(Prompt_Category_id=query).values())})
 
 
 @api_view(["GET", "POST"])
