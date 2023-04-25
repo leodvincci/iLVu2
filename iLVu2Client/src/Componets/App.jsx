@@ -11,6 +11,7 @@ import QuotePage from "../Pages/QuotePage.jsx";
 import MoodPage from "../Pages/MoodPage.jsx";
 import JournalCategoryPage from "../Pages/JournalCategoryPage.jsx";
 import JournalPromptPage from "../Pages/JournalPromptPage.jsx";
+import JournalPage from "../Pages/JournalPage.jsx";
 
 
 
@@ -67,6 +68,7 @@ export default function App() {
       <Route path="/journal/tracker" element={<TrackerPage/>}/>
       <Route path="/journal/category" element={<JournalCategoryPage/>}/>
       <Route path="/journal/prompt/:id" element={<JournalPromptPage/>}/>
+      <Route path="/journal/prompt/:promptid/:catid/response" element={<JournalPage/>}/>
       <Route path="/mood/tracker" element={<TrackerPage_2/>}/>
       <Route path="/quote" element={<QuotePage/>}/>
       <Route path="/mood" element={<MoodPage/>}/>
