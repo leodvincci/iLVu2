@@ -14,7 +14,7 @@ export default function JournalCategoryCard(props){
     <h2 className="card-title">{props.catName}</h2>
     <p>{props.catDesc}</p>
     <div className="card-actions justify-end">
-      <Link to={`/journal/prompt/${props.catID}`}> <button className="btn btn-primary">View Prompts</button></Link>
+      <Link to={`/journal/prompt/${props.catID}`}> <button className={props.btnColor}>{props.btnTxt}</button></Link>
     </div>
   </div>
 </div>

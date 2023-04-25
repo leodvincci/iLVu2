@@ -19,7 +19,7 @@ export default function JournalCategoryPage(){
 
                   <div className={`flex flex-row flex-wrap`}>
                 {catData.map(d=>{
-                    return <JournalCategoryCard catID ={d.id} catName={d.category_name} catDesc={d.category_description}/>
+                    return <JournalCategoryCard btnColor={"btn btn-primary"} catID ={d.id} catName={d.category_name} theLink={"/journal/prompt/${props.catID}"} btnTxt={"View Prompts"} catDesc={d.category_description}/>
                 })}
                  </div>
 

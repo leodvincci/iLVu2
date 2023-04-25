@@ -1,21 +1,14 @@
-import JournalPromptCard from "../Componets/JournalPromptCard.jsx";
-import { useParams } from "react-router-dom";
-
+import JournalCategoryCard from "../Componets/JournalCategoryCard.jsx";
 import React from "react";
 import axios from "axios";
 
-export default function JournalPromptPage(){
+export default function JournalCategoryResponsePage(){
     const [catData, setCatData] = React.useState([])
-      const { id } = useParams();
-
     console.log("CatData: ",catData)
-    console.log("CatID: ",id)
-
-
-
     React.useEffect(()=>{
-        axios.get(`/api/v1/siteprompt?id=${id}`)
+        axios.get("/api/v1/categories")
             .then((res)=>{
+                console.log(res.data.Data)
                 setCatData([...res.data.Data])
             })
     },[])
@@ -26,7 +19,7 @@ export default function JournalPromptPage(){
 
                   <div className={`flex flex-row flex-wrap`}>
                 {catData.map(d=>{
-                    return <JournalPromptCard btnTxt={"Answer Prompt"} catID={d.id} promptID={d.Prompt_Category_id} catName={d.prompt_text} catDesc={d.prompt_text}/>
+                    return <JournalCategoryCard btnColor={"btn btn-warning"} catID ={d.id} btnTxt={"View Response"} catName={d.category_name} catDesc={d.category_description}/>
                 })}
                  </div>
 

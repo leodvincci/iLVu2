@@ -11,7 +11,9 @@ import QuotePage from "../Pages/QuotePage.jsx";
 import MoodPage from "../Pages/MoodPage.jsx";
 import JournalCategoryPage from "../Pages/JournalCategoryPage.jsx";
 import JournalPromptPage from "../Pages/JournalPromptPage.jsx";
+import JournalPromptResponsePage from "../Pages/JournalPromptResponsePage.jsx";
 import JournalPage from "../Pages/JournalPage.jsx";
+import JournalCategoryResponsePage from "../Pages/JournalCategoryResponsePage.jsx";
 
 
 
@@ -41,7 +43,7 @@ export default function App() {
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
       <Link to={"/journal/category"}><li><a>Journal Prompts</a></li></Link>
-       <Link to={"/resp"}><li><a>Journal Responses</a></li> </Link>
+       {/*<Link to={"/journal/response/category"}><li><a>Journal Responses</a></li> </Link>*/}
              <Link to={"/journal/tracker"}><li><a>Journal Tracker</a></li> </Link>
 
       <li className={`text-3xl`}> | </li>
@@ -72,7 +74,9 @@ export default function App() {
       <Route path="/user/register/" element={<Registration/>}/>
       <Route path="/journal/tracker" element={<TrackerPage/>}/>
       <Route path="/journal/category" element={<JournalCategoryPage/>}/>
+      <Route path="/journal/response/category" element={<JournalCategoryResponsePage/>}/>
       <Route path="/journal/prompt/:id" element={<JournalPromptPage/>}/>
+      <Route path="/journal/prompt/response" element={<JournalPromptResponsePage/>}/>
       <Route path="/journal/prompt/:promptid/:catid/response" element={<JournalPage/>}/>
       <Route path="/mood/tracker" element={<TrackerPage_2/>}/>
       <Route path="/quote" element={<QuotePage/>}/>

@@ -22,11 +22,10 @@ export default function JournalPromptPage(){
 
     return(
         <div >
-            <h1>Journal Categories</h1>
 
                   <div className={`flex flex-row flex-wrap`}>
                 {catData.map(d=>{
-                    return <JournalPromptCard btnTxt={"Answer Prompt"} catID={d.id} promptID={d.Prompt_Category_id} catName={d.prompt_text} catDesc={d.prompt_text}/>
+                    return <JournalPromptCard btnTxt={"View Response"} catID={d.id} promptID={d.Prompt_Category_id} catName={d.prompt_text} catDesc={d.prompt_text}/>
                 })}
                  </div>
 
