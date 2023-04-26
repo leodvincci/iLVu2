@@ -22,7 +22,6 @@ export default function JournalPromptPage(){
 
     return(
         <div >
-            <h1>Journal Categories</h1>
 
                   <div className={`flex flex-row flex-wrap`}>
                 {catData.map(d=>{
