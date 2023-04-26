@@ -33,4 +33,7 @@ Django, Python, NextJS, JavaScript, HTML, CSS, Tailwind, Postgresql
 
 ## Demo
 
-https://user-images.githubusercontent.com/90817505/229367783-98cb5d7a-d123-41e4-8cd2-833336811e5d.mp4
+
+https://user-images.githubusercontent.com/90817505/234467408-1f858b78-8dd4-4aad-86e6-97ab3b20f163.mp4
+
+
