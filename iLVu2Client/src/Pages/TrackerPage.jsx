@@ -63,12 +63,12 @@ export default function TrackerPage(){
 
             {
             userName === null ? document.location.href = "/user/login" : 
-          <h1>Welcome {userName}!</h1>
+          <h1 className={`text-3xl`}>Welcome {userName}!</h1>
 
          }
             <div className={`flex flex-col p-8 w-screen items-center`}>
 
-                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-yellow-500 text-white p-9`}>
+                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r text-white p-9`}>
 
                          {
                              theDates.map(d=>{

@@ -22,8 +22,13 @@ React.useEffect(()=>{
     for(let x of moodData){
         if(props.aDate.toString() === x.toString()){
             console.log(props.aDate.toString() , "----", x.toString())
-           my_bg = "bg-green-500"
+           my_bg = "bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-emerald-500 to-lime-600"
         }
+                if(props.aDate.toString() !== x.toString()){
+            console.log(props.aDate.toString() , "----", x.toString())
+           my_bg = "bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 to-gray-600 bg-gradient-to-r"
+        }
+
     }
 
     return(

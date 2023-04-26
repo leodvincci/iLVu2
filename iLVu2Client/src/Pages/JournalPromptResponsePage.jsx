@@ -47,7 +47,7 @@ export default function JournalPromptPage(){
                   <div className={`flex flex-col flex-wrap w-3/4 p-4 mt-8`}>
 
                       <div className="chat chat-start m-7">
-  <div className="chat-bubble chat-bubble-primary text-3xl p-3 ">{promptData.prompt_text}</div>
+  <div className="chat-bubble bg-blue-500 text-3xl p-8 ">{promptData.prompt_text}</div>
 </div>
 
 
@@ -55,7 +55,7 @@ export default function JournalPromptPage(){
                     return (
                         <div>
                             <div className="chat chat-end">
-                          <div className="chat-bubble bg-green-700 text-2xl text-white">{d.prompt_response_text}</div>
+                          <div className="chat-bubble bg-teal-500 text-2xl text-white p-7">{d.prompt_response_text}</div>
                         </div>
                         </div>
 
