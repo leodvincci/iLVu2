@@ -9,14 +9,14 @@ export default function JournalCategoryCard(props){
 
 
     return(
- <div className="card w-96 bg-base-100 shadow-xl m-8 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-amber-200 via-violet-600 to-sky-900 ">
+ <div className="card w-96 bg-base-100 shadow-xl m-8 bg-slate-100  ">
   <div className="card-body">
     {/*<h2 className="card-title">{props.catName}</h2>*/}
-    <p>{props.catDesc}</p>
+    <p className={`text-xl p-3 font-bold `}>{props.catDesc}</p>
     <div className="card-actions justify-end">
-                <Link to={`/journal/prompt/${props.catID}/response/${props.promptID}`}> <button className="btn btn-active btn-accent">View Responses</button></Link>
+                <Link to={`/journal/prompt/${props.catID}/response/${props.promptID}`}> <button className="btn btn-outline btn-primary">View Responses</button></Link>
 
-        <Link to={`/journal/prompt/${props.catID}/${props.promptID}/response`}> <button className="btn btn-success">{props.btnTxt}</button></Link>
+        <Link to={`/journal/prompt/${props.catID}/${props.promptID}/response`}> <button className="btn btn-outline btn-accent">{props.btnTxt}</button></Link>
 
     </div>
   </div>

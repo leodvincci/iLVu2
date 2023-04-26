@@ -15,7 +15,7 @@ export default function JournalCategoryPage(){
 
     return(
         <div >
-            <h1 className={`text-3xl`}>Categories</h1>
+            {/*<h1 className={`text-3xl`}>Categories</h1>*/}
 
                   <div className={`flex flex-row flex-wrap`}>
                 {catData.map(d=>{
