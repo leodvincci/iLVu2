@@ -45,7 +45,7 @@ export default function TrackerPage(){
 
             {
             userName === null ? document.location.href = "/user/login" : 
-          <h1>Welcome {userName}!</h1>
+          <h1 className={`text-3xl`} >Welcome {userName}!</h1>
 
 
          }

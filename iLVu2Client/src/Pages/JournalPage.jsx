@@ -75,18 +75,23 @@ const csrftoken = getCookie('csrftoken');
 
 
     return(
-        <div>
+        <div className={`flex flex-col items-center justify-center`}>
 
-            <div className="chat chat-start">
-                      <div className="chat-bubble chat-bubble-primary"> {promptData.prompt_text} </div>
+            <div className={`w-3/4`}>
+                  <div className="chat chat-start">
+                      <div className="chat-bubble bg-blue-500 text-3xl p-8 mt-[3rem] "> {promptData.prompt_text} </div>
             </div>
 
             <div className="chat chat-end">
-                <div id={"p-response"} className="chat-bubble chat-bubble-warning">{promptReponse}</div>
+                <div id={"p-response"} className="chat-bubble bg-teal-500 text-xl">{promptReponse}</div>
             </div>
 
-            <textarea onChange={handleChange} placeholder="Bio" className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
-            <button onClick={handleTheSubmit} className="btn btn-success">Submit</button>
+
+
+
+            </div>
+                        <textarea onChange={handleChange} placeholder="...type here" className="textarea textarea-bordered textarea-lg w-full max-w-xs mt-[9rem]" ></textarea>
+            <button onClick={handleTheSubmit} className="btn btn-success m-3">Submit</button>
 
 
 

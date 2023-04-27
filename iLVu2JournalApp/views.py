@@ -108,6 +108,7 @@ def Prompt_Response(request):
     elif request.method == "POST":
         prompt_response_text = request.data['prompt_response_text']
         site_prompt_id = request.data['Site_Prompt_id']
+
         prompt_response = PromptResponse(prompt_response_text=prompt_response_text,
                                          Site_Prompt_id=site_prompt_id, App_User_id=request.user.id)
         prompt_response.save()

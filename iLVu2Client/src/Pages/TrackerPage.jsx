@@ -11,6 +11,17 @@ export default function TrackerPage(){
 
     const theDates = []
 
+            const [userID, setUserId] = React.useState()
+
+        React.useEffect(()=>{
+             axios.get("/user/curr_user")
+            .then(res =>{
+                setUserId(res.data.user_data.pk)
+            }).catch(((err)=>{
+                // console.log(err)
+            }))
+    },[])
+
 
 
 
@@ -26,8 +37,8 @@ export default function TrackerPage(){
     dateGen(2023,1,1,2023,12,31)
 
 
-   
-       axios.get("/user/curr_user")
+        React.useEffect(()=>{
+                   axios.get("/user/curr_user")
             .then(res =>{
                 console.log(res.data.user_data.fields.first_name)
                 console.log(res.data.user_data.pk)
@@ -36,6 +47,9 @@ export default function TrackerPage(){
                 setUsername(null)
                 console.log(err)
             }))
+        },[])
+
+
   
 
 
@@ -49,17 +63,17 @@ export default function TrackerPage(){
 
             {
             userName === null ? document.location.href = "/user/login" : 
-          <h1>Welcome {userName}!</h1>
+          <h1 className={`text-3xl`}>Welcome {userName}!</h1>
 
          }
             <div className={`flex flex-col p-8 w-screen items-center`}>
 
-                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-yellow-500 text-white p-9`}>
+                                 <div className={`flex flex-row w-fit flex-wrap rounded bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r text-white p-9`}>
 
                          {
                              theDates.map(d=>{
                         let a1 = new Date(new Date(d).getFullYear(),new Date(d).getMonth(),new Date(d).getDate())
-                    {{return <Block aDate={a1}/>}}
+                    {{return <Block userID={userID} aDate={a1}/>}}
 
                          })
                          }

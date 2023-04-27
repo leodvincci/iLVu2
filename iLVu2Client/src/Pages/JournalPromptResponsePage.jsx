@@ -6,11 +6,15 @@ import axios from "axios";
 
 export default function JournalPromptPage(){
     const [catData, setCatData] = React.useState([])
-      const { site_prompt_id } = useParams();
+    const [promptData, setPromptData] = React.useState("")
+
+    const { catid } = useParams();
+    const { site_prompt_id } = useParams();
 
     console.log("CatData: ",catData)
-    console.log("CatID: ",site_prompt_id)
-
+    console.log("CatID: ",catid)
+    console.log("Site-Prompt-id : ",site_prompt_id)
+    console.log("Some Data : ",promptData)
 
 
     React.useEffect(()=>{
@@ -20,15 +24,38 @@ export default function JournalPromptPage(){
             })
     },[])
 
-    return(
-        <div >
 
-                  <div className={`flex flex-row flex-wrap`}>
+    React.useEffect(()=>{
+        axios.get(`http://localhost:8000/api/v1/siteprompt?id=${catid}`)
+            .then((res)=>{
+                console.log("HELLO")
+                for(const r of res.data.Data){
+                    if(r.id == site_prompt_id){
+                        setPromptData(r)
+                        console.log("YUP")
+                    }
+                }
+            })
+    },[])
+
+
+
+
+    return(
+        <div className={`w-screen flex flex-col items-center`}>
+
+                  <div className={`flex flex-col flex-wrap w-3/4 p-4 mt-8`}>
+
+                      <div className="chat chat-start m-7">
+  <div className="chat-bubble bg-blue-500 text-3xl p-8 ">{promptData.prompt_text}</div>
+</div>
+
+
                 {catData.map(d=>{
                     return (
                         <div>
                             <div className="chat chat-end">
-                          <div className="chat-bubble chat-bubble-success">{d.prompt_response_text}</div>
+                          <div className="chat-bubble bg-teal-500 text-2xl text-white p-7">{d.prompt_response_text}</div>
                         </div>
                         </div>
 
