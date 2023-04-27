@@ -1,10 +1,14 @@
 import axios, {Axios} from "axios";
 import React from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 export  default function MoodPage(){
     const [moodEmojis, setMoodEmoji] = React.useState()
     const [mood, setMood] = React.useState()
     const [moodDescription, setMoodDescription] = React.useState()
+    const navigate = useNavigate();
+
 
     const [userID, setUserId] = React.useState()
     console.log("USERID: ",userID)
@@ -66,7 +70,8 @@ const csrftoken = getCookie('csrftoken');
                         Mood_Tracker_id: res.data.Mood_Tracker_id,
                         App_user_id: userID,
                         date: new Date(8.64e15).toString()
-                    },{xsrfHeaderName:"X-CSRFToken", headers:{'X-CSRFToken': csrftoken}}).then(r =>{console.log("SUCCESS!")})
+                    },{xsrfHeaderName:"X-CSRFToken", headers:{'X-CSRFToken': csrftoken}}).then(r =>{    navigate('/mood/responses');
+})
         })
     }
 
@@ -76,6 +81,8 @@ const csrftoken = getCookie('csrftoken');
 
     return (
             <div className={`flex flex-col items-center h-screen w-screen justify-center `}>
+
+                <div className={`text-[4rem] m-5`}>{mood}</div>
 
                 <div className={`flex flex-row w-3/4 p-10 h-[20rem] flex-wrap overflow-scroll items-center justify-center`}>
                     {
