@@ -8,6 +8,7 @@ A mental health journal prompt web app that helps users track and manage their m
 ![image](https://user-images.githubusercontent.com/90817505/234482401-b6f68879-c3a9-4042-98ce-b70b99754ddd.png)
 ![image](https://user-images.githubusercontent.com/90817505/234750528-2c94b1ed-6ea6-4e1e-a901-efc4c163a3f2.png)
 ![image](https://user-images.githubusercontent.com/90817505/234750640-992fba1e-7fe5-4871-af13-1a15ad7f15ca.png)
+![image](https://user-images.githubusercontent.com/90817505/234751613-6bdb2185-1485-4322-a8fc-47fc3cf4685c.png)
 
 ![image](https://user-images.githubusercontent.com/90817505/234500171-20e4281b-6a29-4f60-87c4-829b62db57b6.png)
 ![image](https://user-images.githubusercontent.com/90817505/234750849-35d2acb9-c919-40d0-bf30-9ed83231f24a.png)
