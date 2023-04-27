@@ -1,9 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 
 export default function JournalPage(){
 
+    const nav = useNavigate();
 
     const { catid } = useParams();
     const { promptid } = useParams();
@@ -61,8 +64,7 @@ const csrftoken = getCookie('csrftoken');
                 axios.post("/api/v1/journaltracker", {
                     Prompt_Response_id: res.data.prompt_response_id
                 }, {xsrfHeaderName: "X-CSRFToken", headers: {'X-CSRFToken': csrftoken}})
-
-            .then((res) => {
+                    .then((res) => {
                 // console.log("RES::: ",res)
                 axios.post("/api/v1/calendar", {
                     Journal_Tracker_id: res.data.Journal_Tracker,
@@ -70,8 +72,16 @@ const csrftoken = getCookie('csrftoken');
                 }, {xsrfHeaderName: "X-CSRFToken", headers: {'X-CSRFToken': csrftoken}})
                     .then(r => {
                         console.log("SUCCESS!")
-                    })
-            })})}
+                    }).then(()=>{
+                            nav(`/journal/prompt/${promptid}/response/${catid}`);
+
+                })
+
+            })
+
+
+
+            })}
 
 
     return(
