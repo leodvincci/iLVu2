@@ -7,16 +7,6 @@ A mental health journal prompt web app that helps users track and manage their m
 
 https://user-images.githubusercontent.com/90817505/235038706-eaa5a300-b00d-4b52-991f-cb43aee6c12c.mp4
 
-## Screenshots
-
-![image](https://user-images.githubusercontent.com/90817505/234482401-b6f68879-c3a9-4042-98ce-b70b99754ddd.png)
-![image](https://user-images.githubusercontent.com/90817505/234750528-2c94b1ed-6ea6-4e1e-a901-efc4c163a3f2.png)
-![image](https://user-images.githubusercontent.com/90817505/234750640-992fba1e-7fe5-4871-af13-1a15ad7f15ca.png)
-![image](https://user-images.githubusercontent.com/90817505/234753858-1b17589d-9820-414c-85d5-6d5a98947fce.png)
-![image](https://user-images.githubusercontent.com/90817505/234754245-11b47f18-6b3e-4162-ae28-da35461f92e3.png)
-![image](https://user-images.githubusercontent.com/90817505/234750849-35d2acb9-c919-40d0-bf30-9ed83231f24a.png)
-![image](https://user-images.githubusercontent.com/90817505/234750941-a8485047-885b-42cb-a8e4-1bc276da3e49.png)
-![image](https://user-images.githubusercontent.com/90817505/234751244-7d8df7d8-b133-4e8e-afdc-d9622051eaae.png)
 
 ## Database
 ![auth_group](https://user-images.githubusercontent.com/90817505/235004285-a01331b7-0c6d-4416-b2de-67e45cf5ff56.png)
@@ -39,9 +29,23 @@ https://user-images.githubusercontent.com/90817505/235038706-eaa5a300-b00d-4b52-
 Django, Python, NextJS, JavaScript, HTML, CSS, Tailwind, Postgresql
 
 
+## Screenshots
+
+![image](https://user-images.githubusercontent.com/90817505/234482401-b6f68879-c3a9-4042-98ce-b70b99754ddd.png)
+![image](https://user-images.githubusercontent.com/90817505/234750528-2c94b1ed-6ea6-4e1e-a901-efc4c163a3f2.png)
+![image](https://user-images.githubusercontent.com/90817505/234750640-992fba1e-7fe5-4871-af13-1a15ad7f15ca.png)
+![image](https://user-images.githubusercontent.com/90817505/234753858-1b17589d-9820-414c-85d5-6d5a98947fce.png)
+![image](https://user-images.githubusercontent.com/90817505/234754245-11b47f18-6b3e-4162-ae28-da35461f92e3.png)
+![image](https://user-images.githubusercontent.com/90817505/234750849-35d2acb9-c919-40d0-bf30-9ed83231f24a.png)
+![image](https://user-images.githubusercontent.com/90817505/234750941-a8485047-885b-42cb-a8e4-1bc276da3e49.png)
+![image](https://user-images.githubusercontent.com/90817505/234751244-7d8df7d8-b133-4e8e-afdc-d9622051eaae.png)
+
+
 ## Authors
 
 - [@leodvincci](https://www.github.com/leodvincci)
+
+
 
 
 
