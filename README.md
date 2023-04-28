@@ -43,4 +43,5 @@ Django, Python, NextJS, JavaScript, HTML, CSS, Tailwind, Postgresql
 ## Demo
 
 [![Alt text for your video](https://img.youtube.com/vi/8JqU0Omwbbs/0.jpg)](https://www.youtube.com/watch?v=8JqU0Omwbbs)
+https://www.youtube.com/watch?v=8JqU0Omwbbs
 
