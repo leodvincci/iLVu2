@@ -2,6 +2,10 @@
 # iLVu2
 A mental health journal prompt web app that helps users track and manage their mental health. This app provides users with a series of daily prompts and questions to guide them in reflecting on their emotions, thoughts, and behaviors. The goal of the app is to encourage users to develop a regular journaling habit, which can help them gain insight into their mental health and identify patterns or triggers that may be contributing to their mental health struggles.
 
+## Demo
+
+
+https://user-images.githubusercontent.com/90817505/235038706-eaa5a300-b00d-4b52-991f-cb43aee6c12c.mp4
 
 ## Screenshots
 
@@ -40,9 +44,6 @@ Django, Python, NextJS, JavaScript, HTML, CSS, Tailwind, Postgresql
 - [@leodvincci](https://www.github.com/leodvincci)
 
 
-## Demo
 
-
-https://user-images.githubusercontent.com/90817505/235038706-eaa5a300-b00d-4b52-991f-cb43aee6c12c.mp4
 
 
