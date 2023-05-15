@@ -1,11 +1,7 @@
-from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.core import serializers
-from django.contrib.auth.decorators import login_required
 import json
 import requests
 from dotenv import load_dotenv
